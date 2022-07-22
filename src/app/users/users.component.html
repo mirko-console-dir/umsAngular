@@ -1,0 +1,43 @@
+<hr />
+<h3 class="">
+  {{ title }}
+</h3>
+<hr />
+<div class="row mb-5">
+  <div class="col-sm-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">Age</th>
+          <th scope="col">City</th>
+          <th scope="col">Province</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let user of users">
+                <td>{{ user.name }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.fiscalcode }}</td>
+                <td>{{ user.province }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.age }}</td>
+              </tr> -->
+        <!-- pipe per mostrare in striga gli oggetti dell'array {{
+                users | json
+              }} -->
+        <!-- PASSARE VARIABILE DA PADRE A FIGIO -->
+        <tr
+          app-user
+          *ngFor="let user of users"
+          [user-data]="user"
+          (onDeleteUser)="onDeleteUser($event)"
+          (onSelectUser)="onSelectUser($event)"
+        ></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

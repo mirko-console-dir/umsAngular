@@ -1,0 +1,20 @@
+<!-- i punti di domanda per permettere di dare undifined come valore senza errori di ide -->
+<td>{{ user.name }}</td>
+<td>{{ user.lastname }}</td>
+<td>{{ user?.age }}</td>
+<td>{{ user?.city }}</td>
+<td>{{ user?.province }}</td>
+<td>
+  <div class="d-flex">
+    <button class="btn btn-info" (click)="showUserDetail()">
+      <i class="fas fa-info px-1"></i>
+    </button>
+    <!-- alla funzione possiamo non passatgli il parametro user perchè è già selezionato nel componente ts -->
+    <button class="btn btn-warning mx-1" (click)="updateUser()">
+      <i class="fas fa-pencil-alt"></i>
+    </button>
+    <button class="btn btn-danger" (click)="deleteUser()">
+      <i class="fas fa-trash-alt $white"></i>
+    </button>
+  </div>
+</td>

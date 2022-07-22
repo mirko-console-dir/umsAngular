@@ -1,0 +1,55 @@
+.main {
+  min-height: 80vh;
+}
+.banner_welcome {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  min-height: 70vh;
+  border-radius: 1rem;
+  background-image: url("../images/home.jpg");
+  background-size: cover;
+}
+.bee {
+  height: 20vh;
+  position: absolute;
+  right: 0px;
+}
+.welcome_message {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.welcome_message h1 {
+  color: #fff;
+  text-shadow: 2px 2px 4px #000000;
+}
+.btn-primary {
+  padding: 1em;
+  border-radius: 1rem;
+  border: 2px solid black;
+}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .banner_welcome {
+    margin-top: 5vh;
+  }
+  .bee {
+    height: 30vh;
+  }
+}
+/* desktop*/
+
+@media all and (min-width: 1025px) {
+  .banner_welcome {
+    margin-top: 5vh;
+  }
+  .btn-primary {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
+  .bee {
+    height: 30vh;
+  }
+}

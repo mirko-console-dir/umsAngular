@@ -1,0 +1,174 @@
+<hr />
+<h3>
+  {{ title }}
+</h3>
+<hr />
+<!-- #f indichiamo la template con asterisco e assegnamo all'ngForm per avere accesso in funzione di reset form nel contesto di edit che ci permette di avere accesso ai metodi del form il #f.form.value oppure fomr.reset()-->
+<div class="row">
+  <form class="userForm mb-3 col-sm-6" #f="ngForm">
+    <!--   {{ user | json }} -->
+    <input type="hidden" ngmodel="user.id" name="id" />
+    <div class="form-group">
+      <label class="form-label" for="name">Name</label>
+      <!-- PARENTESI [] INPUT ()OUTPUT PER NGMODEL ENTRAMBE SIA IN INPUT CHE OUTPUT -->
+      <!-- required per validazione pulsante save, template variable per fare ng model al ngIf del alert-danger message required... Pattern per specifiare caratteriche si accetta e lo spazio \s-->
+      <input
+        #firstName="ngModel"
+        pattern="[a-zA-Z\s\s]*"
+        required
+        minlength="3"
+        [(ngModel)]="user.name"
+        class="form-control"
+        type="text"
+        name="name"
+        id="name"
+      />
+      <!-- differenziare gli errori tra required e invalid (e che abbia scritto qualcosa dirty e touch) -->
+      <div *ngIf="firstName.dirty && firstName.touched && firstName.invalid">
+        <div *ngIf="firstName.errors['required']" class="alert-danger">
+          <p>Must be Required</p>
+        </div>
+        <div *ngIf="firstName.errors['minlength']" class="alert-danger">
+          <p>Min length 3</p>
+        </div>
+        <div *ngIf="firstName.errors['pattern']" class="alert-danger">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="lastname">Lastname</label>
+      <input
+        [(ngModel)]="user.lastname"
+        class="form-control"
+        type="text"
+        name="lastname"
+        id="lastname"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="age">Age</label>
+      <!-- pattern 
+        = caratteri numerici da 0 a 9, minimo di 2 max 3 cifre -->
+      <input
+        #age="ngModel"
+        pattern="[0-9]{2,3}"
+        required
+        minlength="2"
+        minlength="3"
+        [(ngModel)]="user.age"
+        class="form-control"
+        type="number"
+        name="age"
+        id="age"
+      />
+      <div *ngIf="age.dirty && age.touched && age.invalid">
+        <div *ngIf="age.errors['required']" class="alert-danger">
+          <p>Must be Required</p>
+        </div>
+        <div *ngIf="age.errors['minlength']" class="alert-danger">
+          <p>Min length 3</p>
+        </div>
+        <div *ngIf="age.errors['pattern']" class="alert-danger">
+          <p>Field pattern is {{ age.errors["pattern"] }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="adress">Adress</label>
+      <input
+        [(ngModel)]="user.adress"
+        class="form-control"
+        type="text"
+        name="adress"
+        id="adress"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="city">City</label>
+      <input
+        [(ngModel)]="user.city"
+        class="form-control"
+        type="text"
+        name="city"
+        id="city"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="province">Province</label>
+      <input
+        [(ngModel)]="user.province"
+        class="form-control"
+        type="text"
+        name="province"
+        id="province"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="cap">Cap</label>
+      <input
+        [(ngModel)]="user.cap"
+        class="form-control"
+        type="number"
+        name="cap"
+        id="cap"
+      />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="phone">Phone</label>
+      <input
+        [(ngModel)]="user.phone"
+        class="form-control"
+        type="text"
+        name="phone"
+        id="phone"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
+      <input
+        [(ngModel)]="user.email"
+        class="form-control"
+        type="email"
+        name="email"
+        id="email"
+      />
+    </div>
+    <div *ngIf="isHomeRoute()" class="form-group">
+      <label for="password" class="form-label">Password</label>
+      <input
+        [(ngModel)]="user.password"
+        class="form-control"
+        type="password"
+        name="password"
+        id="password"
+      />
+    </div>
+    <div class="form-group my-3 d-flex justify-content-center">
+      <button class="btn btn-primary px-3 mx-1" (click)="backTousers()">
+        BACK
+      </button>
+      <button class="btn btn-warning px-3 mx-1" (click)="resetForm(f.form)">
+        Reset
+      </button>
+      <!-- non sarà visibile dino alla validazione del form attraverso templatevariable -->
+      <button
+        [disabled]="f.invalid"
+        class="btn btn-success px-3 mx-1"
+        (click)="saveUser()"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+  <div class="lottie col-sm-6">
+    <lottie-player
+      src="https://assets10.lottiefiles.com/packages/lf20_acxjjfqm.json"
+      background="transparent"
+      speed="1"
+      style="height: 60vh"
+      loop
+      autoplay
+    ></lottie-player>
+  </div>
+</div>

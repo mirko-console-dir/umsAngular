@@ -1,0 +1,66 @@
+<hr />
+<h3>
+  {{ title }}
+</h3>
+<hr />
+<div class="row">
+  <div
+    class="
+      col-sm-6
+      d-flex
+      flex-column
+      align-items-center
+      justify-content-around
+    "
+  >
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <td>{{ user.name }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Lastname</th>
+          <td>{{ user.lastname }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Age</th>
+          <td>{{ user.age }}</td>
+        </tr>
+        <tr>
+          <th scope="col">City</th>
+          <td>{{ user.city }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Province</th>
+          <td>{{ user.province }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Cap</th>
+          <td>{{ user.cap }}</td>
+        </tr>
+        <tr>
+          <th scope="col">Phone</th>
+          <td>{{ user.phone }}</td>
+        </tr>
+
+        <tr>
+          <th scope="col">Email</th>
+          <td>{{ user.email }}</td>
+        </tr>
+      </thead>
+    </table>
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-primary" (click)="backTousers()">BACK</button>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <lottie-player
+      src="https://assets8.lottiefiles.com/packages/lf20_qv9hdeyy.json"
+      background="transparent"
+      speed="1"
+      style="height: 50vh"
+      autoplay
+    ></lottie-player>
+  </div>
+</div>
